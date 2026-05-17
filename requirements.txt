@@ -1,0 +1,16 @@
+praw
+pandas
+numpy
+matplotlib
+seaborn
+networkx
+nltk
+spacy
+afinn
+vaderSentiment
+nrclex
+wordcloud
+scikit-learn
+tqdm
+python-louvain
+python-dotenv
