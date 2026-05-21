@@ -2,6 +2,7 @@ atproto
 praw
 pandas
 numpy
+pyarrow
 matplotlib
 seaborn
 networkx
