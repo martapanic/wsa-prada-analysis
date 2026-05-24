@@ -1,8 +1,11 @@
 # Web and Social Media Search and Analysis — Bluesky Project
 
 **Topic:** *The Devil Wears Prada 2*
+
 **Platform:** Bluesky (AT Protocol via `atproto` SDK)
+
 **Course:** Web and Social Media Search and Analysis, A.Y. 2025/2026
+
 **University:** Bachelor in Artificial Intelligence; Università degli Studi di Pavia, Università degli Studi di Milano Statale, Università degli Studi di Milano-Bicocca
 
 ---
