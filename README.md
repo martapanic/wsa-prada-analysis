@@ -13,7 +13,7 @@
 
 ## Research question
 
-> > How did Bluesky users engage with the release of *The Devil Wears Prada 2*, and how do discussion communities, sentiment and dominant themes differ across film-, fashion-, celebrity-culture- and box-office-related narratives?
+>  How did Bluesky users engage with the release of *The Devil Wears Prada 2*, and how do discussion communities, sentiment and dominant themes differ across film-, fashion-, celebrity-culture- and box-office-related narratives?
 
 The question is articulated into four sub‑questions:
 
@@ -108,7 +108,7 @@ Open the notebooks in the order below and run all cells. Estimated runtimes refe
 
 The pilot (notebook 00) tests twelve search queries that target four overlapping audiences: the film itself, the two main characters (Miranda Priestly and Anna Wintour), the four returning cast members (Anne Hathaway, Meryl Streep, Emily Blunt, Stanley Tucci) and two press‑tour guests (Lady Gaga, Doechii). Cast queries are disambiguated by pairing each name with `prada` to suppress generic‑name noise.
 
-The full collection (notebook 01) refines the query set in light of the pilot: queries that saturated the pilot cap are widened, low‑signal queries are dropped, and six new queries are added to broaden recall (`"dwp2"`, `#dwp2`, `"devil wears prada sequel"`, `"prada sequel"`, `"prada 2" movie`, `"devil wears prada" 2026`). It also performs **thread expansion**: for every root post with at least one declared reply, the full thread is fetched with `app.bsky.feed.get_post_thread(depth=8)` and recursively flattened, producing one row per reply with parent and root URIs.
+The full collection (notebook 01) refines the query set in light of the pilot: queries that saturated the pilot cap are widened, low‑signal queries are dropped, and six new queries are added to broaden recall (`"dwp2"`, `#dwp2`, `"devil wears prada sequel"`, `"prada sequel"`, `"prada 2" movie`, `"devil wears prada" 2026`). It also performs **thread expansion**: for each root post with at least one declared reply, the thread is fetched with `app.bsky.feed.get_post_thread(depth=8)` and recursively flattened, producing one row per retrieved reply with parent and root URIs.
 
 Collection uses cursor‑based pagination with `sort="latest"`, server‑side `since` / `until` time filters, and an exponential‑backoff retry wrapper that honours `ratelimit-reset` and `retry-after` headers so that long runs recover from transient errors automatically.
 
@@ -136,9 +136,9 @@ The final cross‑analysis joins community membership with sentiment, emotion an
 
 - The Bluesky conversation about *The Devil Wears Prada 2* is **event‑driven and post‑release**. Daily volume is negligible before 15 April 2026 and rises sharply after 1 May; about 88 % of the corpus is post‑release.
 - The reply network is **highly fragmented**: 1 555 authors form 371 disconnected components, the largest of which contains only 5.7 % of nodes. The conversation is a constellation of small reply trees around individual viral posts rather than a single sustained debate.
-- Three of the four community detection algorithms (Louvain, Greedy Modularity, Girvan–Newman) converge on essentially the same 10–11 community partition with modularity around 0.42 (pairwise ARI ≥ 0.96). FluidC produces a different, coarser partition (ARI ≈ 0.45).The convergence between Louvain, Greedy Modularity and Girvan–Newman suggests that the giant component has a stable modular structure under different community-detection strategies.
+- Three of the four community detection algorithms (Louvain, Greedy Modularity, Girvan–Newman) converge on essentially the same 10–11 community partition with modularity around 0.42 (pairwise ARI ≥ 0.96). FluidC produces a different, coarser partition (ARI ≈ 0.45). The convergence between Louvain, Greedy Modularity and Girvan–Newman suggests that the giant component has a stable modular structure under different community-detection strategies.
 - Sentiment is **polarised rather than uniformly positive**: about 43 % negative, 38 % positive, 19 % neutral (VADER ± 0.05). The NRCLex emotion profile is led by *anticipation* and *trust*, consistent with a release‑window discussion.
-- Communities show distinct affective and topical profiles, which is what makes the cross‑analysis informative. Within the giant component, communities show distinct affective and topical profiles. These community-level findings concern only about 110 texts, corresponding to roughly 2% of the full corpus and about 2.6% of the English sub-corpus.
+- - Within the giant component, communities show distinct affective and topical profiles, which is what makes the cross-analysis informative. These community-level findings concern only about 110 texts, corresponding to roughly 2% of the full corpus and about 2.6% of the English sub-corpus.
 
 The full quantitative breakdown is in the final markdown cells of notebooks 02 and 03, in the figures under `data/figures/`, and in the project report.
 
